@@ -36,7 +36,7 @@ function login(req, res, next) {
           token,
           user_id: rows[0].user_id,
           user_name: rows[0].user_name,
-        });
+        })
       } else {
         console.error("Your password does not match!");
         throw new AppError("Your Password does not match!");
@@ -57,7 +57,7 @@ function newUser(req, res, next) {
   promiseQuery(sql, body)
     .then((rows) => {
       console.log(rows);
-      res.json({ user_name: user_name });
+      next()
     })
     .catch((err) => {
       console.log("in catch");
